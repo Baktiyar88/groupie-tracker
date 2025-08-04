@@ -61,7 +61,7 @@ go test ./internal/...
 - `web/static/` — CSS-стили
 
 ## Ссылка на репозиторий
-[https://01.tomorrow-school.ai/git/bzhaksyb/groupie-tracker](https://01.tomorrow-school.ai/git/bzhaksyb/groupie-tracker)
+[https://01.tomorrow-school.ai/git/bzhaksyb/groupie-tracker](https://01.tomorrow-school.ai/git/bzhaksyb/groupie-tracker-visualizations.git)
 
 ---
 
