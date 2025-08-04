@@ -1,0 +1,427 @@
+  /* Общие стили страницы */
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    padding: 20px;
+    margin: 0;
+    color: #333;
+  }
+
+  /* Хедер */
+  .header h1 {
+    margin: 0 0 20px;
+    font-size: 2em;
+  }
+  .header a {
+    color: #2c3e50;
+    text-decoration: none;
+  }
+  .header a:hover {
+    text-decoration: underline;
+  }
+
+  /* Контролы поиска/фильтра */
+  .controls {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .controls input,
+  .controls select,
+  .controls button {
+    padding: 8px 12px;
+    font-size: 1em;
+    margin: 0 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .controls button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .controls button:hover {
+    background-color: #2980b9;
+  }
+
+  /* Контейнер для карточек — flex‑контейнер */
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  /* Оформление карточки артиста */
+  .artist-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 220px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 220px;
+    max-width: 250px;
+    min-height: 320px;
+    max-height: 350px;
+    transition: transform 0.3s ease;
+    position: relative;
+  }
+  .artist-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .artist-card h3 {
+    margin: 10px 0 5px;
+    font-size: 1.1em;
+  }
+  .artist-card p {
+    margin: 5px 10px 10px;
+    font-size: 0.9em;
+  }
+  .artist-card a {
+    color: inherit;
+    text-decoration: none;
+    width: 100%;
+  }
+  .artist-card a:hover {
+    /* transition: width 0.3s ease;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width: 250px;
+    height: 350px; */
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    color: #2c3e50;
+    text-decoration: none;
+  }
+  .artist-card img:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+  .artist-card a:hover h3 {
+    text-decoration: underline;
+  }
+
+  /* Стили для фокуса и доступности */
+  .artist-card a:focus,
+  .concert-list__item:focus,
+  .back-home__link:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .artist-card a:focus {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+  }
+
+  .concert-list__item:focus {
+    background-color: #f8f9fa;
+    padding: 5px;
+    border-radius: 4px;
+  }
+
+  .back-home__link:focus {
+    background-color: #2980b9;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.5);
+  }
+
+  /* Стили для поля поиска при фокусе */
+  .controls input:focus,
+  .controls select:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 1px;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  }
+
+  /* Индикатор активного элемента для навигации с клавиатуры */
+  .artist-card a:focus::after,
+  .concert-list__item:focus::after {
+    content: ' [Enter]';
+    font-size: 0.8em;
+    color: #3498db;
+    font-weight: bold;
+  }
+
+  /* Страница артиста: контейнер и выравнивание */
+  .artist-detail {
+    background: #fff;
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: left;
+  }
+
+  /* Изображение артиста */
+  .artist-detail__img {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 300px;
+    border-radius: 5px;
+  }
+
+  /* Заголовки */
+  .artist-detail__title {
+    margin-bottom: 15px;
+    font-size: 2em;
+  }
+  .artist-detail__subtitle {
+    margin-top: 25px;
+    font-size: 1.5em;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+  }
+
+  /* Общая информация об артистe */
+  .artist-detail__info p {
+    margin: 8px 0;
+  }
+
+  /* Список концертов */
+  .concert-list {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+  }
+  .concert-list__item {
+    margin-bottom: 15px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+  .concert-list__item:hover {
+    background-color: #f8f9fa;
+  }
+  .concert-list__city {
+    font-weight: bold;
+  }
+  .concert-list__dates {
+    list-style: disc inside;
+    margin: 5px 0 0 15px;
+    padding: 0;
+  }
+  .concert-list__dates li {
+    margin-bottom: 4px;
+  }
+
+  /* Нет концертов */
+  .no-concerts {
+    font-style: italic;
+    color: #666;
+  }
+
+  /* Кнопка «Назад» */
+  .back-home {
+    margin-top: 30px;
+    text-align: center;
+  }
+  .back-home__link {
+    display: inline-block;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  .back-home__link:hover {
+    background-color: #2980b9;
+  }
+
+  /* Стили для уведомлений */
+  .notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1001;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    animation: slideIn 0.3s ease;
+  }
+
+  @keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes slideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+  }
+
+  /* Стили для кнопки помощи */
+  .help-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: #007bff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+  }
+
+  .help-button:hover {
+    transform: scale(1.1);
+    background: #0056b3;
+  }
+
+  .help-button:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+  }
+
+  /* --- Error Page Styles --- */
+  .error-container {
+    background: #fff;
+    max-width: 420px;
+    margin: 60px auto 0 auto;
+    padding: 40px 30px 32px 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(52, 152, 219, 0.10), 0 1.5px 6px rgba(44, 62, 80, 0.08);
+    text-align: center;
+    position: relative;
+  }
+  .error-code {
+    font-size: 5em;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px rgba(231, 76, 60, 0.15);
+  }
+  .error-title {
+    font-size: 2em;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 12px;
+  }
+  .error-message {
+    font-size: 1.15em;
+    color: #555;
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+  .error-container .back-home {
+    margin-top: 0;
+  }
+  .error-container .back-home button {
+    background: #3498db;
+    color: #fff;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .error-container .back-home button:hover {
+    background: #217dbb;
+  }
+  .error-container .back-home a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+/* ====== 3D‑лента артистов с адаптивностью ====== */
+
+/* Общие правила для ленты: теперь разрешаем перенос */
+.artist-list-3d {
+  list-style: none;
+  margin: 40px auto;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;            /* теперь плитки могут переноситься на новую строку */
+  justify-content: center;    /* центрируем даже при переносе */
+  transform: rotate(-35deg) skew(20deg, 5deg);
+  perspective: 600px;
+  overflow: visible;
+}
+
+/* Плитки автоматически подстраиваются по ширине контейнера */
+.artist-list-3d .artist-card {
+  flex: 0 1 180px;            /* базовый размер 180px, но могут ужаться до нужного */
+  margin: 10px;               /* отступы вокруг плитки */
+  padding: 1em;
+  background: #000;
+  color: #575757;
+  text-align: center;
+  box-shadow: -2em 1.5em 0 #e1e1e1;
+  transition: all .25s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Грани и ховер остаются без изменений */
+.artist-list-3d .artist-card::before,
+.artist-list-3d .artist-card::after {
+  content: '';
+  position: absolute;
+  transition: all .25s ease;
+}
+.artist-list-3d .artist-card::before {
+  width: 0.5em; height: 100%;
+  left: -0.5em; top: 0;
+  background: #121212; transform: skewY(45deg);
+}
+.artist-list-3d .artist-card::after {
+  width: 100%; height: 0.5em;
+  left: 0; bottom: -0.5em;
+  background: #333; transform: skewX(45deg);
+}
+.artist-list-3d .artist-card:hover {
+  background: #ff6e42;
+  color: #fffcfb;
+  transform: translate(1em, -1em);
+  box-shadow: -2em 2em 0 #e1e1e1;
+  z-index: 10;
+}
+.artist-list-3d .artist-card:hover::before { background: #b65234; }
+.artist-list-3d .artist-card:hover::after  { background: #8b3b23; }
+
+/* Отключаем 3D‑наклон и упрощаем вид на узких экранах */
+@media (max-width: 768px) {
+  .artist-list-3d {
+    transform: none;
+  }
+  .artist-list-3d .artist-card {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transform: none;
+  }
+  .artist-list-3d .artist-card::before,
+  .artist-list-3d .artist-card::after {
+    display: none;
+  }
+  .artist-list-3d .artist-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+}
+

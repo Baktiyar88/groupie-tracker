@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>{{.Name}} — Артист</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/short.js"></script>
+</head>
+<body>
+  <div class="artist-detail">
+    <img class="artist-detail__img" src="{{.Image}}" alt="{{.Name}}">
+    <h1 class="artist-detail__title">{{.Name}}</h1>
+    <p><strong>Год создания:</strong> {{.CreationDate}}</p>
+    <p><strong>Первый альбом:</strong> {{.FirstAlbum}}</p>
+    <p><strong>Участники:</strong> {{range $i, $m := .Members}}{{if $i}}, {{end}}{{$m}}{{end}}</p>
+
+    <h2>Локации и даты концертов</h2>
+    {{if .DatesLocations}}
+      <ul class="concert-list">
+      {{range $city, $dates := .DatesLocations}}
+        <li class="concert-list__item">
+          <span class="concert-list__city">{{$city}}:</span>
+          <ul class="concert-list__dates">
+            {{range $d := $dates}}
+              <li>{{$d}}</li>
+            {{end}}
+          </ul>
+        </li>
+      {{end}}
+      </ul>
+    {{else}}
+      <p>Нет данных о концертах</p>
+    {{end}}
+
+    <div class="back-home">
+      <a class="back-home__link" href="/">← Назад к списку</a>
+    </div>
+  </div>
+</body>
+</html>

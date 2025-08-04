@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Groupie Tracker</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/short.js"></script>
+</head>
+<body>
+ <div class="content">
+ <div class="diagonal" id="diagonal">
+    <div class="header">
+    <h1><a href="/">🎵 Groupie Tracker</a></h1>
+  </div>
+    <div class="controls">
+      <form method="get" action="/">
+        <input type="text" name="search" placeholder="Поиск артиста..." value="{{.Search}}" />
+        <select name="year">
+          <option value="">Все годы</option>
+          {{range .Years}}
+            <option value="{{.}}" {{if eq $.Year (printf "%d" .)}}selected{{end}}>{{.}}</option>
+          {{end}}
+        </select>
+        <!-- <select name="year-to">
+          <option value="">Все годы</option>
+          {{range .Years}}
+            <option value="{{.}}" {{if eq $.YearTo (printf "%d" .)}}selected{{end}}>{{.}}</option>
+          {{end}}
+        </select> -->
+        <button type="submit">Найти</button>
+      </form>
+    </div>
+    {{if gt (len .Artists) 0}}
+    <ul class="artist-grid artist-list-3d">
+        {{range .Artists}}
+          <li class="artist-card">
+            <a href="/artist/{{.ID}}">
+              <img src="{{.Image}}" alt="{{.Name}}">
+              <h2>{{.Name}}</h2>
+            </a>
+            <p>Первый альбом: {{.FirstAlbum}}</p>
+            <p>Год создания: {{.CreationDate}}</p>
+            <p>Участников: {{len .Members}}</p>
+          </li>
+        {{end}}
+      </ul>
+    {{else}}
+      <p>Артисты не найдены</p>
+    {{end}}
+    </div>
+    </div>
+</body>
+</html> 
